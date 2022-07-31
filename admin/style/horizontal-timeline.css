@@ -1,0 +1,137 @@
+
+.time-line-box {
+    height: 10rem; 
+    padding: 10px 0;
+    width: 100%;
+    background-color: #dadefe;
+  }
+  
+  .time-line-box .timeline {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .time-line-box .timestamp {
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* garis horizontal atas*/
+  .time-line-box .status {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid ;
+    position: relative;
+    transition: all 200ms ease-in;
+    margin-bottom: 2rem;
+  }
+  .time-line-box .status span {
+    padding-top: 8px;
+  }
+  /* bulatan */
+  .time-line-box .status span:before {
+    /* border-top-right-radius: ; */
+    content: '';
+    width: 12px;
+    height: 12px;
+    /* background-color: #455EFC; */
+    border-radius: 12px;
+    border: 2px solid;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all 200ms ease-in;
+  }
+  /* warna garis bulatan */
+  .time-line-box .checked {
+    border-color: #455EFC;
+  }
+  .time-line-box .checked5 {
+    border-color: #00FF00;
+  }
+  .time-line-box .checked10 {
+    border-color: #FFFF00;
+  }
+  .time-line-box .checked span:before {
+    border-color: #455EFC;
+    background-color: #455EFC;
+  }
+  .time-line-box .checked5 span:before {
+    border-color: #00FF00;
+    background-color: #00FF00;
+  }
+  .time-line-box .checked10 span:before {
+    border-color: #FFFF00;
+    background-color: #FFFF00;
+  }
+  /* garis horizontal bawah */
+  .time-line-box .line-con {
+    padding: 0px 10px; 
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #455EFC;
+    position: relative;
+    transition: all 200ms ease-in;
+  }
+  .time-line-box .line-con span {
+    padding-bottom: 5px;
+  }
+  /* bulatan */
+  .time-line-box .line-con span:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #455EFC;
+    border-radius: 12px;
+    border: 2px solid #455EFC;
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    -webkit-transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    transition: all 200ms ease-in;
+  }
+  .swiper-container {
+    width: 95%;
+    margin: auto;
+    overflow-y: auto;
+  }
+  .swiper-wrapper{
+    display: inline-flex;
+    flex-direction: row;
+    overflow-y:auto;
+    justify-content: center;
+  }
+  .swiper-container::-webkit-scrollbar-track{
+     background:#a8a8a8b6;
+  }
+  .swiper-container::-webkit-scrollbar{
+    height: 2px;
+  }
+  .swiper-container::-webkit-scrollbar-thumb{
+     background: #4F4F4F !important;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 12px;
+    width: 20em;
+    height: 100%;
+    position: relative;
+  }
+
+  .swiper-wrapper::after{
+    width: 100px;
+    height: 100px;
+    border: 3px solid yellow;
+    position: absolute;
+  }
