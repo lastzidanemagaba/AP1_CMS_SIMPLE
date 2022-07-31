@@ -2,7 +2,7 @@
 .time-line-box {
   height: 100%; 
   padding: 10px 0;
-  width: 80rem;
+  width: 100%;
 }
 
 .time-line-box .timeline {
@@ -52,38 +52,41 @@
   transform: translate(-50%, -50%);
   transition: all 200ms ease-in;
 }
-/* warna garis bulatan */
-.time-line-box .checked {
-  border-color: #ff0000;
+/* warna garis & bulatan */
+.time-line-box .checked0 {
+  border-color: #ff0000 !important;
 }
 .time-line-box .checked5 {
-  border-color: #FFFF00;
+  border-color: #FFFF00 !important;
 }
 .time-line-box .checked10 {
-  border-color: #00FF00;
+  border-color: #00FF00 !important;
 }
-.time-line-box .checked span:before {
-  border-color: #ff0000;
-  background-color: #ff0000;
+.time-line-box .checked0 span:before {
+  border-color: #ff0000 !important;
+  background-color: #ff0000 !important;
 }
 .time-line-box .checked5 span:before {
-  border-color: #FFFF00;
-  background-color: #FFFF00;
+  border-color: #FFFF00 !important;
+  background-color: #FFFF00 !important;
 }
 .time-line-box .checked10 span:before {
-  border-color: #00FF00;
-  background-color: #00FF00;
+  border-color: #00FF00 !important;
+  background-color: #00FF00 !important;
 }
 /* garis horizontal bawah */
 .time-line-box .line-con {
   padding: 0px 10px;
-  margin-bottom: 0.48rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
-  border-bottom: 3px solid #455EFC;
+  border-bottom: 3px solid;
   position: relative;
   transition: all 200ms ease-in;
-  
+  height: 1rem;
+}
+.status0 {
+  height: 1rem;
 }
 .time-line-box .line-con span {
   padding-bottom: 0.3rem;
@@ -93,9 +96,9 @@
   content: '';
   width: 12px;
   height: 12px;
-  background-color: #455EFC;
+  /* background-color: #455EFC; */
   border-radius: 12px;
-  border: 2px solid #455EFC;
+  border: 2px solid;
   position: absolute;
   left: 50%;
   bottom: 0%;
@@ -105,7 +108,7 @@
   transition: all 200ms ease-in;
 }
 .swiper-container {
-  width: 70rem;
+  width: 80%;
   margin: auto;
   overflow-y: auto;
 
@@ -113,7 +116,6 @@
 .swiper-wrapper{
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   overflow-y:auto;
   /* justify-content: center; */
 }
@@ -138,7 +140,17 @@
   padding: 0; 
   width: 5px; 
   border-right: 3px solid; 
-  height: 3.8rem;
+  height: 4.2rem;
+}
+.left-con{
+  position: absolute;
+  left: 9.67%;
+  margin-top: 2.2rem;
+}
+.right-con{
+  position: absolute; 
+  left: calc(90% - 0.3rem);
+  margin-top: 2.2rem;
 }
 
 .corner-right-top{

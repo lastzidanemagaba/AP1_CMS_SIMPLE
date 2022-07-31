@@ -3,7 +3,7 @@
  date_default_timezone_set('Asia/Jakarta');
 
  //membuat koneksi dengan database
- $con = new mysqli('localhost','u8671314_kiw','kiw_u8671314','u8671314_kiw_patrol') or die('Unable to Connect');
+ $con = new mysqli('localhost','root','','u8671314_kiw_patrol') or die('Unable to Connect');
  //$con = new mysqli('localhost','root','','kiw_patrol') or die('Unable to Connect');
  $base_url = "../";
 

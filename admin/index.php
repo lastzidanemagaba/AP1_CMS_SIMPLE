@@ -72,16 +72,16 @@
                                         if($col_end - 1 == $jml_col && $i % 2 == 0){
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp checked5'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-right-top checked5'><span>" . $evt['tag_location2'] . "</span></div>";
+                                            echo "<div class='status corner-right-top checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line right checked5'></div>";
+                                                echo "<div class='vertical-line right-con checked5'></div>";
                                             }
                                         }
                                         elseif($col_end - 1 == $jml_col && $i % 2 == 1)
                                         {
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line left checked5'></div>";
+                                                echo "<div class='vertical-line left-con checked5'></div>";
                                             }
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp checked5'><span>" . $evt['location'] . "</span></div>";
@@ -92,14 +92,14 @@
                                         {
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp line-con corner-right-bottom checked5'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='corner-left-top checked5'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status0 checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         elseif($col_start == $jml_col && $i % 2 == 0 && $i != 0)
                                         {
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp line-con corner-left-bottom checked5'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='checked5'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status0 checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
@@ -116,13 +116,13 @@
                                             echo "<div class='status corner-right-top checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>"; 
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line right checked10'></div>";
+                                                echo "<div class='vertical-line right-con checked10'></div>";
                                             }
                                         }
                                         elseif($col_end - 1 == $jml_col && $i % 2 == 1)
                                         {
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line left checked10'></div>";
+                                                echo "<div class='vertical-line left-con checked10'></div>";
                                             }
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp checked10'><span>" . $evt['location'] . "</span></div>";
@@ -133,14 +133,14 @@
                                         {
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp line-con corner-right-bottom checked10'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='checked10'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status0 checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         elseif($col_start == $jml_col && $i % 2 == 0 && $i != 0)
                                         {
                                             echo "<div class='swiper-slide'>";
                                             echo "<div class='timestamp line-con corner-left-bottom checked10'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='checked10'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status0 checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
@@ -154,42 +154,42 @@
                                         // kolom terakhir baris ganjil
                                         if($col_end - 1 == $jml_col && $i % 2 == 0){
                                             echo "<div class='swiper-slide'>";
-                                            echo "<div class='timestamp checked'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-right-top checked'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
+                                            echo "<div class='status corner-right-top checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line right checked'></div>";
+                                                echo "<div class='vertical-line right-con checked0'></div>";
                                             }
                                         }
                                         elseif($col_end - 1 == $jml_col && $i % 2 == 1)
                                         {
                                             if($i+1 != $loop){
-                                                echo "<div class='vertical-line left checked'></div>";
+                                                echo "<div class='vertical-line left-con checked0'></div>";
                                             }
                                             echo "<div class='swiper-slide'>";
-                                            echo "<div class='timestamp checked'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-left-top  checked'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
+                                            echo "<div class='status corner-left-top  checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         elseif($col_start == $jml_col && $i % 2 == 1)
                                         {
                                             echo "<div class='swiper-slide'>";
-                                            echo "<div class='timestamp line-con corner-right-bottom checked'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='checked'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='timestamp line-con corner-right-bottom checked0'><span>" . $evt['location'] . "</span></div>";
+                                            echo "<div class='status0 checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         elseif($col_start == $jml_col && $i % 2 == 0 && $i != 0)
                                         {
                                             echo "<div class='swiper-slide'>";
-                                            echo "<div class='timestamp line-con corner-left-bottom checked'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='checked'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='timestamp line-con corner-left-bottom checked0'><span>" . $evt['location'] . "</span></div>";
+                                            echo "<div class='status0 checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
                                         {
                                             echo "<div class='swiper-slide'>";
-                                            echo "<div class='timestamp checked'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status checked'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
+                                            echo "<div class='status checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                     }
