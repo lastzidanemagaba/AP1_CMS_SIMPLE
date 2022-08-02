@@ -1,7 +1,7 @@
 
 .time-line-box {
   height: 100%; 
-  padding: 10px 0;
+  padding: 3rem 0 0 0;
   width: 100%;
 }
 
@@ -74,41 +74,9 @@
   border-color: #00FF00 !important;
   background-color: #00FF00 !important;
 }
-/* garis horizontal bawah */
-.time-line-box .line-con {
-  padding: 0px 10px;
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  border-bottom: 3px solid;
-  position: relative;
-  transition: all 200ms ease-in;
-  height: 1rem;
-}
-.status0 {
-  height: 1rem;
-}
-.time-line-box .line-con span {
-  padding-bottom: 0.3rem;
-}
-/* bulatan bawah*/
-.time-line-box .line-con span:before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  /* background-color: #455EFC; */
-  border-radius: 12px;
-  border: 2px solid;
-  position: absolute;
-  left: 50%;
-  bottom: 0%;
-  -webkit-transform: translate(-50%, 70%);
-  -ms-transform: translate(-50%, 70%);
-  transform: translate(-50%, 70%);
-  transition: all 200ms ease-in;
-}
+
 .swiper-container {
-  width: 80%;
+  width: 60%;
   margin: auto;
   overflow-y: auto;
 
@@ -130,42 +98,32 @@
 }
 .swiper-slide {
   text-align: center;
-  font-size: 12px;
-  width: 20rem;
+  font-size: 0.75em;
+  width: calc(100% / 6);
   height: 100%;
   position: relative;
 }
-.vertical-line{
-  margin: 0; 
-  padding: 0; 
-  width: 5px; 
-  border-right: 3px solid; 
-  height: 4.2rem;
-}
-.left-con{
-  position: absolute;
-  left: 9.67%;
-  margin-top: 2.2rem;
-}
-.right-con{
-  position: absolute; 
-  left: calc(90% - 0.3rem);
-  margin-top: 2.2rem;
-}
 
-.corner-right-top{
-  border-right: 3px solid; 
+.vertical-con {
+  position: absolute;
+  width: 2rem;
+  height: 6rem;
+}
+.right-con {
+  border-right: 3px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
   border-top-right-radius: 1rem;
-}
-.corner-right-bottom{
-  border-right: 3px solid; 
   border-bottom-right-radius: 1rem;
+  margin-top: 1.33rem;
+  margin-left: 60%;
 }
-.corner-left-top{
+.left-con {
   border-left: 3px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
   border-top-left-radius: 1rem;
-}
-.corner-left-bottom{
-  border-left: 3px solid;
   border-bottom-left-radius: 1rem;
+  margin-top: 1.33rem;
+  margin-right: 60%;
 }

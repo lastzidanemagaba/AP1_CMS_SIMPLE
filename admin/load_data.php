@@ -87,52 +87,8 @@
 		"insiden"=>$insiden,
 		"tamu"=>$tamu,
 	));
-	array_push($location_check,array(
-		"location"=>"jancok",
-		"checking"=>0,
-		"tag_location"=>"jancok",
-	));
-	array_push($location_check,array(
-		"location"=>"jancok",
-		"checking"=>1,
-		"tag_location"=>"jancok",
-	));
-	array_push($location_check,array(
-		"location"=>"jancok",
-		"checking"=>1,
-		"tag_location"=>"jancok",
-	));
-	// array_push($location_check,array(
-	// 	"location"=>"jancok",
-	// 	"checking"=>1,
-	// 	"tag_location"=>"jancok",
-	// ));
-	// array_push($location_check,array(
-	// 	"location"=>"jancok",
-	// 	"checking"=>1,
-	// 	"tag_location"=>"jancok",
-	// ));
-	// array_push($location_check,array(
-	// 	"location"=>"jancok",
-	// 	"checking"=>0,
-	// 	"tag_location"=>"jancok",
-	// ));
-	// array_push($location_check,array(
-	// 	"location"=>"jancok",
-	// 	"checking"=>0,
-	// 	"tag_location"=>"jancok",
-	// ));
-	// array_push($location_check,array(
-	// 	"location"=>"jancok",
-	// 	"checking"=>0,
-	// 	"tag_location"=>"jancok",
-	// ));
-	
-	
 	$data = json_encode(array('master_data'=>$master_data,'daily_check'=>$daily_check,'location_check'=>$location_check));
     // rubah data json ke array
     $data_array = json_decode($data, true);
-    //print_r($data_array['location_check']);
-	//echo "</br>". count($data_array['location_check']);
 
 	mysqli_close($con);
