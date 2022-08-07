@@ -103,6 +103,27 @@
   height: 100%;
   position: relative;
 }
+.swiper-slide5 {
+  text-align: center;
+  font-size: 0.75em;
+  width: calc(100% / 5);
+  height: 100%;
+  position: relative;
+}
+.swiper-slide4 {
+  text-align: center;
+  font-size: 0.75em;
+  width: calc(100% / 4);
+  height: 100%;
+  position: relative;
+}
+.swiper-slide3 {
+  text-align: center;
+  font-size: 0.75em;
+  width: calc(100% / 3);
+  height: 100%;
+  position: relative;
+}
 
 .vertical-con {
   position: absolute;
@@ -110,20 +131,21 @@
   height: 6rem;
 }
 .right-con {
-  border-right: 3px solid;
-  border-top: 3px solid;
-  border-bottom: 3px solid;
+  border-right: 4px solid;
+  border-top: -1px solid;
+  border-bottom: -1px solid;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   margin-top: 1.33rem;
-  margin-left: 60%;
+  margin-left: 58.4%;
+  
 }
 .left-con {
-  border-left: 3px solid;
-  border-top: 3px solid;
-  border-bottom: 3px solid;
+  border-left: 4px solid;
+  border-top: -1x solid;
+  border-bottom: -1px solid;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   margin-top: 1.33rem;
-  margin-right: 60%;
+  margin-right: 58.4%;
 }

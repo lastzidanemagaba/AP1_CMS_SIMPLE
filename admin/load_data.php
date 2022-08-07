@@ -27,7 +27,7 @@
 	
 
 	//Membuat SQL Query
-	$sql = "SELECT * FROM subarea_list WHERE status = '1'";
+	$sql = "SELECT * FROM subarea_list WHERE status = '1' ORDER BY setelah";
 	//Mendapatkan Hasil
 	$r = mysqli_query($con,$sql);
 	while($row = mysqli_fetch_array($r)){
@@ -87,6 +87,14 @@
 		"insiden"=>$insiden,
 		"tamu"=>$tamu,
 	));
+	/*for($i=0;$i<6;$i++){
+		array_push($location_check,array(
+			"location"=>"xxxxxxxx" . $i,
+			"checking"=>1,
+			"tag_location"=>"xxxxxxxx",
+		));
+	}
+	*/
 	$data = json_encode(array('master_data'=>$master_data,'daily_check'=>$daily_check,'location_check'=>$location_check));
     // rubah data json ke array
     $data_array = json_decode($data, true);

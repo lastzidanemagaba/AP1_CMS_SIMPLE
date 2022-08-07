@@ -47,23 +47,96 @@
         <div class="event-container">
             
                 <section class="time-line-box">
-                    <div class="swiper-container text-center"> 
+                    <div class="swiper-container sw-cont-size text-center"> 
                         <?php // start loop
-                        $count = count($data_array['location_check'])/6;
-                        $loop = ceil($count);
+                        $jumlah_data = count($data_array['location_check']); // hitung array
+                        $jml_baris = $jumlah_data/6; // menentukan jumlah baris => dalam desimal
+                        $loop = ceil($jml_baris); // digenapkan keatas untuk menentukan jumlah looping dan baris
+                        $col_end = 0; // deklarasi kolom end
+                        $col_start = 0; // deklarasi kolom start
+
                         
                         for($i=0; $i<$loop; $i++){
                             $jml_col = 0;
-                            $col_start = $i *6;
-                            $col_end = $col_start + 6;
-                            if($count <= 1){
+                            // menentukan class property
+                            if($jml_baris <= 1){
                                 echo "<div class='swiper-wrapper' style='justify-content: center; '>";
                             }
                             if($i % 2 == 1){
                                 echo "<div class='swiper-wrapper' style='flex-direction: row-reverse !important;'>";
                             }
-                            if($count > 1 && $i % 2 == 0) {
+                            if($jml_baris > 1 && $i % 2 == 0) {
                                 echo "<div class='swiper-wrapper'>";
+                            }
+                            // menentukan ukuran baris kolom timeline jika baris <= 2
+                            if($loop <= 2){
+                              if($jumlah_data > $loop*4){
+                                $sisa_data = $jumlah_data - $col_end;
+                                $col_start = $i * 5;
+                                $col_end = $col_start + 5;
+                                if($sisa_data >= 5){
+                                  $swiper_slide_class = "swiper-slide5";
+                                }else{
+                                  $swiper_slide_class = "swiper-slide4";
+                                }
+                              }
+                              if($jumlah_data <= $loop*4 && $jumlah_data > 6){
+                                $sisa_data = $jumlah_data - $col_end;
+                                $col_start = $i * 4;
+                                $col_end = $col_start + 4;
+                                if($sisa_data >= 4){
+                                  $swiper_slide_class = "swiper-slide4";
+                                }else{
+                                  $swiper_slide_class = "swiper-slide3";
+                                }
+                              }
+                              if($jumlah_data%6 == 0 || $jumlah_data > $loop*5 || $jumlah_data <= 6){
+                                $sisa_data = $jumlah_data - $col_end;
+                                $col_start = $i * 6;
+                                $col_end = $col_start + 6;
+                                if($sisa_data >= 6){
+                                  $swiper_slide_class = "swiper-slide";
+                                }else{
+                                  $swiper_slide_class = "swiper-slide5";
+                                }
+                              }
+                            }
+                            // menentukan ukuran baris kolom timeline jika baris > 2
+                            if($loop > 2){
+                              if($jumlah_data <= $loop*5){
+                                $sisa_data = $jumlah_data - $col_end ;
+                                if($i == 0){
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 5;
+                                  $swiper_slide_class = "swiper-slide5";
+                                }
+                                elseif($sisa_data%4 == 0 && $sisa_data%5 != 0){
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 4;
+                                  $swiper_slide_class = "swiper-slide4";
+                                }else{
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 5;
+                                  $swiper_slide_class = "swiper-slide5";
+                                }
+                              }
+                              elseif($jumlah_data > $loop*5){
+                                $sisa_data = $jumlah_data - $col_end ;
+                                if($i == 0){
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 6;
+                                  $swiper_slide_class = "swiper-slide";
+                                }
+                                elseif($sisa_data%5 == 0 && $sisa_data%6 != 0){
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 5;
+                                  $swiper_slide_class = "swiper-slide5";
+                                }else{
+                                  $col_start = $col_end;
+                                  $col_end = $col_start + 6;
+                                  $swiper_slide_class = "swiper-slide";
+                                } 
+                              }
                             }
                         ?>
                         <?php
@@ -72,9 +145,9 @@
                                 if($jml_col >= $col_start && $jml_col < $col_end){
                                     if($evt['checking'] == 1){
                                         if($col_end - 1 == $jml_col && $i % 2 == 0){
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked5'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-right-top checked5'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                             if($i+1 != $loop){
                                                 echo "<div class='vertical-con right-con checked5'></div>";
@@ -85,21 +158,21 @@
                                             if($i+1 != $loop){
                                                 echo "<div class='vertical-con left-con checked5'></div>";
                                             }
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked5'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status corner-left-top checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
                                         {
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked5'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status checked5'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                     }else if($evt['checking'] >= 2){
                                         if($col_end - 1 == $jml_col && $i % 2 == 0){
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked10'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status corner-right-top checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>"; 
@@ -112,14 +185,14 @@
                                             if($i+1 != $loop){
                                                 echo "<div class='vertical-con left-con checked10'></div>";
                                             }
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked10'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status corner-left-top checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
                                         {
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked10'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status checked10'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
@@ -127,9 +200,9 @@
                                     }else{
                                         // kolom terakhir baris ganjil
                                         if($col_end - 1 == $jml_col && $i % 2 == 0){
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-right-top checked0'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                             if($i+1 != $loop){
                                                 echo "<div class='vertical-con right-con checked0'></div>";
@@ -140,14 +213,14 @@
                                             if($i+1 != $loop){
                                                 echo "<div class='vertical-con left-con checked0'></div>";
                                             }
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
-                                            echo "<div class='status corner-left-top  checked0'><span>" . $evt['tag_location'] . "</span></div>";
+                                            echo "<div class='status checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
                                         }
                                         else
                                         {
-                                            echo "<div class='swiper-slide'>";
+                                            echo "<div class='".  $swiper_slide_class ."'>";
                                             echo "<div class='timestamp checked0'><span>" . $evt['location'] . "</span></div>";
                                             echo "<div class='status checked0'><span>" . $evt['tag_location'] . "</span></div>";
                                             echo "</div>";
@@ -155,16 +228,15 @@
                                     }
                                 }
                                 $jml_col++;
-                            }
+                            } // end loop foreach
                         ?>
                         </div>
                         </br>
-                        <?php   } // end loop 
+                        <?php   } // end loop for
                         ?>
                         <div class="swiper-pagination"></div>
                     </div>
                 </section>
-            
         </div>
 		  
 		  
@@ -375,15 +447,5 @@ function explodePie (e) {
 
 </script>
 
-
-
-
-
 </div>
 <!-- ./wrapper -->
-
-
-
-
-	
-

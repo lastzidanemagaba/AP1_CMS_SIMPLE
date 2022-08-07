@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 31, 2022 at 08:53 AM
--- Server version: 10.5.15-MariaDB-cll-lve
--- PHP Version: 7.4.29
+-- Generation Time: Aug 07, 2022 at 01:36 PM
+-- Server version: 10.5.16-MariaDB-cll-lve
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -569,7 +569,13 @@ INSERT INTO `history_sistem` (`id`, `create_date`, `create_by`, `menu`, `aksi`) 
 (477, '2022-07-30 11:18:49', 4, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 1'),
 (478, '2022-07-30 11:18:55', 4, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 2'),
 (479, '2022-07-31 08:36:05', 4, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 1'),
-(480, '2022-07-31 08:37:24', 4, 'Menu temuan mobile app', 'Memasukkan data temuan');
+(480, '2022-07-31 08:37:24', 4, 'Menu temuan mobile app', 'Memasukkan data temuan'),
+(481, '2022-08-01 10:47:59', 5, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 1'),
+(482, '2022-08-01 10:50:28', 5, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 1'),
+(483, '2022-08-01 10:51:22', 5, 'Menu temuan mobile app', 'Memasukkan data temuan'),
+(484, '2022-08-01 10:57:24', 5, 'Menu tour mobile app', 'Pengecekan Lokasi Lokasi 33'),
+(485, '2022-08-01 11:44:27', 5, 'Menu update mobile app', 'Mengedit data insiden'),
+(486, '2022-08-01 11:45:29', 5, 'Menu visitor mobile app', 'Memasukkan data visitor');
 
 -- --------------------------------------------------------
 
@@ -595,7 +601,7 @@ CREATE TABLE `insiden_report` (
 INSERT INTO `insiden_report` (`id`, `id_subarea`, `deskripsi`, `id_shift`, `time`, `image`, `create_date`, `create_by`) VALUES
 (1, 1, 'Handle pintu patah', 2, '12:11', '', '2021-08-01 10:10:10', 2),
 (2, 1, 'AC bocor', 2, '12.00', 'image_2.jpg', '2021-09-05 14:27:29', 2),
-(3, 2, 'Ya', 1, '16.79', 'image_3.jpg', '2022-07-17 17:50:04', 5),
+(3, 2, 'Yaa', 1, '16.79', 'image_3.jpg', '2022-07-17 17:50:04', 5),
 (4, 1, 'test insident', 0, '21.24', 'image_4.jpg', '2022-07-24 21:24:51', 4),
 (5, 1, 'test insidentttt', 0, '12.12', 'image_5.jpg', '2022-07-28 22:31:55', 4);
 
@@ -797,7 +803,8 @@ CREATE TABLE `nomor_list` (
 INSERT INTO `nomor_list` (`id`, `nama`, `nomor`, `status`) VALUES
 (1, 'Nomor penting1', '0822222222', 1),
 (2, 'Nomor penting 2', '081919191', 1),
-(3, 'SOS', '1901', 1);
+(3, 'SOS', '1901', 1),
+(4, 'RUANG COMMAND CENTER', '082232222618', 1);
 
 -- --------------------------------------------------------
 
@@ -823,11 +830,21 @@ CREATE TABLE `subarea_list` (
 INSERT INTO `subarea_list` (`id`, `subarea`, `alamat`, `id_area`, `tag`, `setelah`, `create_date`, `status`) VALUES
 (1, 'Lokasi 1', 'Alamat 1 ', 1, 'CF8F4E27', 0, '2022-07-16', 1),
 (2, 'Lokasi 2', 'Alamat 2', 1, 'A0053D37', 1, '2022-07-16', 1),
-(3, 'Lokasi 3', 'Alamat3', 1, 'Tag3', 2, '2022-07-16', 2),
-(5, 'Lokasi 4', 'Alamat loka', 1, '1234', 3, '2022-07-21', 2),
-(6, 'Lokasi 33', 'Lokasi 33', 1, '123', 5, '2022-07-30', 1),
-(7, 'Lokasi 4', '4 ya', 1, '123', 0, '2022-07-31', 2),
-(8, 'Lokasi 5', '5 ya', 1, '11233', 0, '2022-07-31', 2);
+(3, 'Lokasi 3', 'Alamat3', 1, 'Tag3', 2, '2022-07-16', 1),
+(5, 'Lokasi 4', 'Alamat loka', 1, '1234', 3, '2022-07-21', 1),
+(6, 'Lokasi 6', 'Lokasi 6', 1, 'D4EEE21E', 2, '2022-07-30', 1),
+(7, 'Lokasi 7', '7 ya', 1, '123', 0, '2022-07-31', 1),
+(8, 'Lokasi 8', '5 ya', 1, '11233', 0, '2022-07-31', 1),
+(9, 'Lokasi 9', 'Tandon', 1, '0428396BB46180', 6, '2022-08-01', 1),
+(10, 'Location 10', 'Depan PT A', 1, '111', 9, '2022-08-01', 1),
+(11, 'Location 11', 'Alamat 11', 1, 'Tag 11', 5, '2022-08-02', 1),
+(12, 'Location 12', 'Location12', 1, 'Tag 12', 11, '2022-08-02', 1),
+(13, 'Loc 13', 'Loc 13', 1, '123', 0, '2022-08-03', 1),
+(14, 'Lokasi 14', 'Alamat 14', 1, 'Tag 14', 3, '2022-08-03', 1),
+(15, 'Lokasi 15', 'Alamat 15', 1, 'tag 15', 0, '2022-08-03', 1),
+(16, 'Lokasi 16', 'Alamat 16', 1, 'tag 16 ', 3, '2022-08-03', 1),
+(17, 'Lokasi 17', 'Alamat 17', 1, 'tag 17', 5, '2022-08-03', 1),
+(18, 'Lokasi 18', 'Alamat 18', 1, 'tag 18', 5, '2022-08-03', 1);
 
 -- --------------------------------------------------------
 
@@ -1181,7 +1198,8 @@ INSERT INTO `temuan_report` (`id`, `id_subarea`, `deskripsi`, `id_shift`, `image
 (329, 1, 'test temuan', 0, 'image_33325.jpg', '2022-07-17 20:32:32', 5),
 (330, 2, 'test deskripsi', 4, 'image_33326.jpg', '2022-07-18 01:38:51', 5),
 (331, 2, 'testtt', 0, 'image_33328.jpg', '2022-07-24 22:44:25', 4),
-(332, 2, 'T', 0, 'image_33336.jpg', '2022-07-31 08:37:24', 4);
+(332, 2, 'T', 0, 'image_33336.jpg', '2022-07-31 08:37:24', 4),
+(333, 2, 'test temuan', 0, 'image_33338.jpg', '2022-08-01 10:51:22', 5);
 
 -- --------------------------------------------------------
 
@@ -34569,7 +34587,10 @@ INSERT INTO `tour_report` (`id`, `id_subarea`, `id_shift`, `create_date`, `creat
 (33333, 1, 1, '2022-07-30 11:18:49', 4, 1, 'tag_lokasi'),
 (33334, 2, 1, '2022-07-30 11:18:55', 4, 1, 'tag_lokasi'),
 (33335, 1, 1, '2022-07-31 08:36:05', 4, 1, 'tag_lokasi'),
-(33336, 2, 0, '2022-07-31 08:37:24', 4, 0, '');
+(33336, 2, 0, '2022-07-31 08:37:24', 4, 0, ''),
+(33337, 1, 1, '2022-08-01 10:50:28', 5, 1, 'tag_lokasi'),
+(33338, 2, 0, '2022-08-01 10:51:22', 5, 0, ''),
+(33339, 6, 1, '2022-08-01 10:57:24', 5, 1, 'tag_lokasi');
 
 -- --------------------------------------------------------
 
@@ -34598,7 +34619,8 @@ INSERT INTO `user_list` (`id`, `nip`, `nama_lengkap`, `username`, `password`, `n
 (2, '123456', 'Test Supervisor', 'testsupervisor', '65748fd11d2a65e145d22fa5d09a657d', '08123456789', 'testsupervisor@gmail.com', 2, 1),
 (4, '123', 'Test Petugass', 'testpetugas', '52d6c34d642d7bd0d0c7267854754d9a', '08123456789', 'testpetugas@gmail.com', 4, 1),
 (5, '12345', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '08123456789', 'admin@gmail.com', 3, 1),
-(6, '127.01.05', 'Gabriela', 'gabriela', '276e697e74e8b5264465139a480db556', '081227105698', 'gabriela@gmail.com', 1, 1);
+(6, '127.01.05', 'Gabriela', 'gabriela', '276e697e74e8b5264465139a480db556', '081227105698', 'gabriela@gmail.com', 1, 1),
+(7, '1', 'Petugas 2', 'petugas2', 'ac5604a8b8504d4ff5b842480df02e91', '081919911', 'petugas@gmail.com', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -34613,6 +34635,13 @@ CREATE TABLE `user_other` (
   `sertifikat` varchar(64) NOT NULL,
   `tgl_lahir` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_other`
+--
+
+INSERT INTO `user_other` (`id`, `alamat`, `jenis_kelamin`, `sertifikat`, `tgl_lahir`) VALUES
+(7, 'alamat petugas2', 1, 'petugas2petugas2petugas2', '2022-08-01');
 
 -- --------------------------------------------------------
 
@@ -34638,7 +34667,7 @@ CREATE TABLE `visitor_report` (
 INSERT INTO `visitor_report` (`id`, `nama`, `perusahaan`, `nomor`, `bertemu`, `tujuan`, `create_date`, `create_by`) VALUES
 (1, 'Yana', 'PT. Abadi', '081111111', 'Ibu Shinta', 'Membahas kerjasama', '2021-09-01 21:49:26', 2),
 (2, 'bagus sanjaya', 'PT. jaya makmur', '081121', 'Ibu shinta', 'membahas kerjasama', '2021-09-05 14:40:07', 2),
-(3, 'Uwuwe', 'Usjs', '6464', 'sueue', '-', '2022-07-17 17:28:05', 5);
+(4, 'Wafi', 'Aps', '08980025672', 'HR', '-', '2022-08-01 11:45:29', 5);
 
 --
 -- Indexes for dumped tables
@@ -34760,7 +34789,7 @@ ALTER TABLE `event_timeline`
 -- AUTO_INCREMENT for table `history_sistem`
 --
 ALTER TABLE `history_sistem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=481;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=487;
 
 --
 -- AUTO_INCREMENT for table `insiden_report`
@@ -34802,43 +34831,43 @@ ALTER TABLE `logbook_report`
 -- AUTO_INCREMENT for table `nomor_list`
 --
 ALTER TABLE `nomor_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subarea_list`
 --
 ALTER TABLE `subarea_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `temuan_report`
 --
 ALTER TABLE `temuan_report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
 
 --
 -- AUTO_INCREMENT for table `tour_report`
 --
 ALTER TABLE `tour_report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33337;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33340;
 
 --
 -- AUTO_INCREMENT for table `user_list`
 --
 ALTER TABLE `user_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_other`
 --
 ALTER TABLE `user_other`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `visitor_report`
 --
 ALTER TABLE `visitor_report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
