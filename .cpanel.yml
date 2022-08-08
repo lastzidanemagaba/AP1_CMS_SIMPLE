@@ -1,0 +1,9 @@
+---
+ 
+deployment:
+ 
+ tasks:
+ 
+ - export DEPLOYPATH=/home/public_html/KIW/PatroliUpdate/
+ 
+ - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
