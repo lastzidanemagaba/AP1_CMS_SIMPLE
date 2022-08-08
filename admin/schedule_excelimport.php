@@ -37,9 +37,11 @@ $bulan = array(
     }
 
     $numrow = 1;
-    $bln = preg_replace('/\s+/', '', $sheet[1]['D']);
+    $text = $sheet[1]['A'];
+    $perintah = explode(" ",$text);
+    $bln = preg_replace('/\s+/', '', $perintah[3]);
     $bln = strtolower($bln);
-    $thnbln = $sheet[1]['B'] . "-" . $bulan[$bln] . "-";
+    $thnbln = $perintah[1] . "-" . $bulan[$bln] . "-";
     foreach($sheet as $row){
     // Ambil data pada excel sesuai Kolom
     $nomor = $row['A']; // Ambil data nomor

@@ -45,12 +45,33 @@
 			      <label for="bln">Upload Schedule</label>
 					<form method="POST" action="schedule_excel.php">
 						<div class="modal-body form-group row">
-							<input type="date" name="bln" id="bln"  class="col-sm-2 form-control" required></input>
-							<div class="col-sm-3">
-								<button href="schedule_excel.php" class="form-control btn btn-default"><i class="fas fa-download"></i> Format Import Excel</button>
+							<label>Bulan</label>
+							<select class="form-control" placeholder="bln"  id="bln" name="bln" required>
+								<option value="">--</option>
+								<option value="01">Januari</option>
+								<option value="02">Februari</option>
+								<option value="03">Maret</option>
+								<option value="04">April</option>
+								<option value="05">Mei</option>
+								<option value="06">Juni</option>
+								<option value="07">Juli</option>
+								<option value="08">Agustus</option>
+								<option value="09">September</option>
+								<option value="10">Oktober</option>
+								<option value="11">November</option>
+								<option value="12">Desember</option>
+							</select>
+							<label>Tahun</label>
+							<select class="form-control" placeholder="thn"  id="thn" name="thn" required>
+								<option value="">--</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+							</select>
+							<div class="col-sm-6">
+								<br><button href="schedule_excel.php" class="form-control btn btn-default"><i class="fas fa-download"></i> Format Import Excel</button>
 							</div>
-							<div class="col-sm-3">
-								<a href="#" data-toggle="modal" data-target="#modalimport" class="form-control btn btn-default"><i class="fas fa-upload"></i> Import Excel</a>
+							<div class="col-sm-6">
+								<br><a href="#" data-toggle="modal" data-target="#modalimport" class="form-control btn btn-default"><i class="fas fa-upload"></i> Import Excel</a>
 							</div>
 						</div>
 					</form>

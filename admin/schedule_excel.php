@@ -12,7 +12,8 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 // ambil tanggal dari inputan
-$tanggal = $_POST['bln'];
+$hasiltangkap = $_POST['thn']."-".$_POST['bln']."-01";
+$tanggal = $hasiltangkap;
 $thnbln =  explode("-", $tanggal);
 // ambil hari terakhir dr bulan inputan
 $hari = date("Y-m-t", strtotime($tanggal));
@@ -24,10 +25,7 @@ $bulan = array(
 );
 $baris = 3;
 // Buat sebuah variabel untuk menampung pengaturan style dari header tabel
-$sheet->setCellValue('A1', "Tahun:");
-$sheet->setCellValue('B1', $thnbln[0]);
-$sheet->setCellValue('C1', "Bulan:");
-$sheet->setCellValue('D1', strtoupper($bulan[(int) $thnbln[1]-1]));
+$sheet->setCellValue('A1', "Tahun ".$thnbln[0]. " Bulan ".strtoupper($bulan[(int) $thnbln[1]-1]));
 $sheet->setCellValue('B2', "Nama");  
 for($i = 0; $i<$hari; $i++){
     $sheet->setCellValue($kolom[$i] . '2',  $i+1);
@@ -74,6 +72,40 @@ while ($data = mysqli_fetch_array($dt)) { // Ambil semua data dari hasil eksekus
     $no++; // Tambah 1 setiap kali looping
     $row++; // Tambah 1 setiap kali looping
 }
+
+$spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('J')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('M')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('N')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('O')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('P')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('Q')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('R')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('S')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('T')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('U')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('V')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('W')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('X')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('Y')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('Z')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AA')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AB')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AC')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AD')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AE')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AF')->setWidth('3');
+$spreadsheet->getActiveSheet()->getColumnDimension('AG')->setWidth('3');
+
 
 // Set orientasi kertas jadi LANDSCAPE
 $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
