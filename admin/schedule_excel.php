@@ -12,7 +12,7 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 // ambil tanggal dari inputan
-$hasiltangkap = $_POST['thn']."-".$_POST['bln']."-01";
+$hasiltangkap = $_POST['thn']."-".$_POST['bln']."-".date('d');
 $tanggal = $hasiltangkap;
 $thnbln =  explode("-", $tanggal);
 // ambil hari terakhir dr bulan inputan

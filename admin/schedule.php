@@ -47,7 +47,7 @@
 						<div class="modal-body form-group row">
 							<label>Bulan</label>
 							<select class="form-control" placeholder="bln"  id="bln" name="bln" required>
-								<option value="">--</option>
+								<option value="">- Pilih Bulan -</option>
 								<option value="01">Januari</option>
 								<option value="02">Februari</option>
 								<option value="03">Maret</option>
@@ -63,7 +63,7 @@
 							</select>
 							<label>Tahun</label>
 							<select class="form-control" placeholder="thn"  id="thn" name="thn" required>
-								<option value="">--</option>
+								<option value="">- Pilih Tahun -</option>
 								<option value="2021">2021</option>
 								<option value="2022">2022</option>
 							</select>

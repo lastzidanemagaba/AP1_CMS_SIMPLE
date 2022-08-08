@@ -254,6 +254,7 @@
               </li>
             </ul>
           </li>
+          
 		  <!--li class="nav-item">
 			<a href="logout" class="nav-link">
 			  <i class="nav-icon fas fa-angle-double-right"></i>
