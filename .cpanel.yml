@@ -9,9 +9,4 @@ deployment:
  - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
 
 
- ---
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/u8671314/public_html/KIW/PatroliUpdate/
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp style.css $DEPLOYPATH
+ 
