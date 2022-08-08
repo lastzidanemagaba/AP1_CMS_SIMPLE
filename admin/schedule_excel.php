@@ -56,14 +56,14 @@ $no = 1; // Untuk penomoran tabel, di awal set dengan 1
 $row = 3; // Set baris pertama untuk isi tabel adalah baris ke 4
 // agar loop bisa berulang denga normal
 $dt = $sql_user;
-$dt2 = $sql;
+$dt2 = $sql->fetch_all(MYSQLI_ASSOC);
 
 while ($data = mysqli_fetch_array($dt)) { // Ambil semua data dari hasil eksekusi $sql_user
 
     $sheet->setCellValue('A' . $row, $no);
     $sheet->setCellValue('B' . $row, $data['username']);
 
-    while ($data2 = mysqli_fetch_array($dt2)) { // Ambil semua data dari hasil eksekusi $sql untuk ambil data jadwal
+    foreach ($dt2 as $data2) { // Ambil semua data dari hasil eksekusi $sql untuk ambil data jadwal
         $tgl = (int) explode("-",$data2['TANGGAL'])[2];
         $index = $tgl-1;
         if($data2['id_user'] == $data['id']){
