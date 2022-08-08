@@ -44,7 +44,7 @@
          
 		  
 		  
-        <div class="event-container">
+        <div class="card-body">
             
                 <section class="time-line-box">
                     <div class="swiper-container sw-cont-size text-center"> 

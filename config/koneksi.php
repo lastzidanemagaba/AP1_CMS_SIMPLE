@@ -3,9 +3,13 @@
  date_default_timezone_set('Asia/Jakarta');
 
  //membuat koneksi dengan database
- $con = new mysqli('localhost','root','','u8671314_kiw_patrol') or die('Unable to Connect');
- //$con = new mysqli('localhost','root','','kiw_patrol') or die('Unable to Connect');
- $base_url = "../";
+$host = 'localhost'; // Nama hostnya
+$username = 'root'; // Username
+$password = ''; // Password (Isi jika menggunakan password)
+$database = 'u8671314_kiw_patrol'; // Nama databasenya
+$con = new mysqli($host,$username,$password,$database) or die('Unable to Connect');
+$pdo = new PDO('mysql:host='.$host.';dbname='.$database, $username, $password);
+$base_url = "../";
 
 $sekarang = date('Y-m-d H:i:s');
 $hari = date('m/d/Y');

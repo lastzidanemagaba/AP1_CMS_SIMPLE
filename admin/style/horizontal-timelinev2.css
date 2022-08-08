@@ -29,7 +29,7 @@
   border-top: 3px solid ;
   position: relative;
   transition: all 200ms ease-in;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   height: 1rem;
 }
 .time-line-box .status span {
@@ -76,7 +76,7 @@
 }
 
 .swiper-container {
-  width: 60%;
+  width: 90%;
   margin: auto;
   overflow-y: auto;
 
@@ -85,7 +85,7 @@
   display: flex;
   flex-direction: row;
   overflow-y:auto;
-  /* justify-content: center; */
+  justify-content: center; 
 }
 .swiper-container::-webkit-scrollbar-track{
    background:#a8a8a8b6;
@@ -128,24 +128,23 @@
 .vertical-con {
   position: absolute;
   width: 2rem;
-  height: 6rem;
+  height: 4rem;
 }
 .right-con {
-  border-right: 4px solid;
-  border-top: -1px solid;
-  border-bottom: -1px solid;
+  border-right: 3px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   margin-top: 1.33rem;
-  margin-left: 58.4%;
-  
+  margin-left: 89%;
 }
 .left-con {
-  border-left: 4px solid;
-  border-top: -1x solid;
-  border-bottom: -1px solid;
+  border-left: 3px solid;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   margin-top: 1.33rem;
-  margin-right: 58.4%;
+  margin-right: 89%;
 }
