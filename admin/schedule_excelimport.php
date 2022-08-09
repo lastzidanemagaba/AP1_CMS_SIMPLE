@@ -3,8 +3,10 @@
 
     require('../vendor/autoload.php');
     // Include librari PhpSpreadsheet
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+    use PhpOffice\PhpSpreadsheet\Spreadsheet;
+    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+    use PhpOffice\PhpSpreadsheet\Style\Border;
+    use PhpOffice\PhpSpreadsheet\Style\Color;
 
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
@@ -36,10 +38,10 @@ $bulan = array(
         $jml_baris++;
     }
 
-    $numrow = 1;
-    $text = $sheet[1]['A'];
+    $numrow = 2;
+    $text = $sheet[2]['C'];
     $perintah = explode(" ",$text);
-    $bln = preg_replace('/\s+/', '', $perintah[3]);
+    $bln = preg_replace('/\s+/', '', $perintah[0]);
     $bln = strtolower($bln);
     $thnbln = $perintah[1] . "-" . $bulan[$bln] . "-";
     foreach($sheet as $row){
@@ -47,7 +49,7 @@ $bulan = array(
     $nomor = $row['A']; // Ambil data nomor
     $username = $row['B']; // Ambil data id
     // ambil id user
-    $sql_id = $pdo->prepare("SELECT id FROM user_list WHERE username = '". $username ."' LIMIT 1");
+    $sql_id = $pdo->prepare("SELECT id FROM user_list WHERE nama_lengkap = '". $username ."' LIMIT 1");
     $sql_id->execute();
     $id_user = $sql_id->fetchAll();
 	foreach($id_user as $rw){

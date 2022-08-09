@@ -7,6 +7,8 @@ require('../vendor/autoload.php');
 // Include librari PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Color;
 
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
@@ -25,12 +27,16 @@ $bulan = array(
 );
 $baris = 3;
 // Buat sebuah variabel untuk menampung pengaturan style dari header tabel
-$sheet->setCellValue('A1', "Tahun ".$thnbln[0]. " Bulan ".strtoupper($bulan[(int) $thnbln[1]-1]));
+//$sheet->setCellValue('A1', "Tahun ".$thnbln[0]. " Bulan ".strtoupper($bulan[(int) $thnbln[1]-1]));
+$sheet->setCellValue('A2', "No");  
 $sheet->setCellValue('B2', "Nama");  
+$sheet->setCellValue('C2', strtoupper($bulan[(int) $thnbln[1]-1]). " ".$thnbln[0]);
 for($i = 0; $i<$hari; $i++){
-    $sheet->setCellValue($kolom[$i] . '2',  $i+1);
+    $sheet->setCellValue($kolom[$i] . '3',  $i+1);
 }
-
+//echo $hari;
+$spreadsheet->setActiveSheetIndex(0)->mergeCells($kolom[0] . '2' . ':'.$kolom[$hari-1] . '2');
+//$spreadsheet->setActiveSheetIndex(0)->mergeCells($kolom[$i] . 2 , ':AG'.$hari);
 
 // Apply style header yang telah kita buat tadi ke masing-masing kolom header
 
@@ -51,7 +57,9 @@ $sql = mysqli_query($con,"SELECT jadwal_dinas.id ID,jadwal_dinas.id_user, jadwal
 $sql_user = mysqli_query($con,"SELECT nama_lengkap,id,username FROM user_list WHERE user_list.id_level = '4' ORDER BY id ASC;");
 
 $no = 1; // Untuk penomoran tabel, di awal set dengan 1
-$row = 3; // Set baris pertama untuk isi tabel adalah baris ke 4
+$row = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
+$spreadsheet->setActiveSheetIndex(0)->mergeCells('A' . 2 . ':A' . 3);
+$spreadsheet->setActiveSheetIndex(0)->mergeCells('B' . 2 . ':B' . 3);
 // agar loop bisa berulang denga normal
 $dt = $sql_user;
 $dt2 = $sql->fetch_all(MYSQLI_ASSOC);
@@ -59,7 +67,7 @@ $dt2 = $sql->fetch_all(MYSQLI_ASSOC);
 while ($data = mysqli_fetch_array($dt)) { // Ambil semua data dari hasil eksekusi $sql_user
 
     $sheet->setCellValue('A' . $row, $no);
-    $sheet->setCellValue('B' . $row, $data['username']);
+    $sheet->setCellValue('B' . $row, $data['nama_lengkap']);
 
     foreach ($dt2 as $data2) { // Ambil semua data dari hasil eksekusi $sql untuk ambil data jadwal
         $tgl = (int) explode("-",$data2['TANGGAL'])[2];
@@ -71,6 +79,25 @@ while ($data = mysqli_fetch_array($dt)) { // Ambil semua data dari hasil eksekus
 
     $no++; // Tambah 1 setiap kali looping
     $row++; // Tambah 1 setiap kali looping
+}
+$styleArrayTabel2 = array(
+        
+    'borders' => array(
+        'allBorders' => array(
+              'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, //BORDER_THIN BORDER_MEDIUM BORDER_HAIR
+              'color' => array('rgb' => '000000')
+        )
+      )
+    );
+$spreadsheet->getActiveSheet()->getStyle('A'.(2).':'.$kolom[$hari-1].($row-1).'')->applyFromArray($styleArrayTabel2);
+$alignment_center = \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER;
+$alignment_center2 = \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER;
+foreach($sheet->getRowIterator() as $row) {
+    foreach($row->getCellIterator() as $cell) {
+        $cellCoordinate = $cell->getCoordinate();
+        $sheet->getStyle($cellCoordinate)->getAlignment()->setHorizontal($alignment_center);
+        $sheet->getStyle($cellCoordinate)->getAlignment()->setVertical($alignment_center2);
+    }
 }
 
 $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
@@ -109,7 +136,7 @@ $spreadsheet->getActiveSheet()->getColumnDimension('AG')->setWidth('3');
 
 // Set orientasi kertas jadi LANDSCAPE
 $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
-
+$spreadsheet->getActiveSheet()->setShowGridlines(False);
 // Set judul file excel nya
 $filename = date('Y-m-d-His'). '-FormatDinas';
 $sheet->setTitle($filename);
