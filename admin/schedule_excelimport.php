@@ -104,5 +104,5 @@ $bulan = array(
     
 
 
-
+// redirect
 header('location: schedule.php'); // Redirect ke halaman awal
