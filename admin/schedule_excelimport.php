@@ -25,20 +25,12 @@ $bulan = array(
     $jml_baris = 1;
     $jml_kolom = 0;
     $kolom = ['A', 'B','C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG'];
-    foreach ($sheet as $row){
-        // Cek jika semua data tidak diisi
-        if ($row['A'] == "" && $row['B'] == ""){
-            continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
-        }
-        if($jml_baris > 0){
-            while($row[$kolom[$jml_kolom]] != "" && $jml_kolom+1 < 33){
-                $jml_kolom++;
-            }
-        }
-        $jml_baris++;
+    // hitung kolom
+    while($sheet[3][$kolom[$jml_kolom+2]] != "" && $jml_kolom+1 < 31){
+        $jml_kolom++;
     }
 
-    $numrow = 2;
+    $numrow = 3;
     $text = $sheet[2]['C'];
     $perintah = explode(" ",$text);
     $bln = preg_replace('/\s+/', '', $perintah[0]);
@@ -57,7 +49,7 @@ $bulan = array(
 	}
     //jika username kosong maka $sql_id = null
     if($username == null || $id_user == null){
-        $sql_id = null;	
+        $sql_id = null;
     }
     // Cek jika semua data tidak diisi
     if ($nomor == "" && $username == ""){
@@ -66,9 +58,9 @@ $bulan = array(
     // Cek $numrow apakah lebih dari 1
     // Artinya karena baris pertama adalah nama-nama kolom
     // Jadi dilewat saja, tidak usah diimport
-    if($numrow > 2){
+    if($numrow > 3){
       // Loop -> Buat query Insert dan ambil data shift dari excel
-        for($i=0; $i<=$jml_kolom-2; $i++){
+        for($i=0; $i<=$jml_kolom; $i++){
             // ambil data shift
             $jadwal = strtoupper($row[$kolom[$i+2]]);
 
@@ -94,9 +86,6 @@ $bulan = array(
             $sql_cek_jadwal = $pdo->prepare("SELECT * FROM jadwal_dinas WHERE id_user = '" . $id . "' AND  tanggal = '" . $tgl . "'");
             $sql_cek_jadwal->execute();
 
-            // if($id == null || $shift == null){
-            //     continue;
-            // }
             if($sql_cek_jadwal->fetchAll() == null && $sql_id != null && $sql_shift != null){// jika data sudah ada update
                 // query insert
                 $query = $pdo->prepare("INSERT INTO jadwal_dinas (id_user,tanggal,id_shift) VALUES('" . $id . "','" . $tgl . "' ,'" . $shift . "')");   
