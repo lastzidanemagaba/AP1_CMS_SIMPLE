@@ -31,7 +31,7 @@ $bulan = array(
             continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
         }
         if($jml_baris > 0){
-            while($row[$kolom[$jml_kolom]] != "" && $jml_kolom+1 < 33){
+            while($row[$kolom[$jml_kolom]] != "" && $jml_kolom+1 < 34){
                 $jml_kolom++;
             }
         }
@@ -82,6 +82,7 @@ $bulan = array(
             foreach($id_shift as $rw){
                 $shift = $rw['id'];
             }
+
             //jika jadwal kosong maka $sql_shift null
             if($jadwal == null || $id_shift == null){
                 $sql_shift = null;	
