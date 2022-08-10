@@ -31,7 +31,7 @@ $bulan = array(
             continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
         }
         if($jml_baris > 0){
-            while($row[$kolom[$jml_kolom]] != "" && $jml_kolom+1 < 34){
+            while($row[$kolom[$jml_kolom]] != "" && $jml_kolom+1 < 33){
                 $jml_kolom++;
             }
         }
